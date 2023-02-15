@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-initdb-config
+data:
+  init.sql: |
+    CREATE DATABASE IF NOT EXISTS metronome;
+    CREATE TABLE metronome.events (customer_id  VARCHAR(256), event_type  VARCHAR(256),transaction_id  VARCHAR(256),timestamp TIMESTAMP);
+    CREATE USER 'backenduser'@'%' IDENTIFIED WITH mysql_native_password BY  'backenduserpassword123';
+    GRANT ALL PRIVILEGES ON *.* TO 'backenduser'@'%';
+    FLUSH PRIVILEGES;
