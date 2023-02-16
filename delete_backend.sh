@@ -1,2 +1,5 @@
-sh ./mysql/delete.sh	
-sh ./nodejs/delete.sh
+cd mysql
+sh delete.sh
+cd ../nodejs
+sh delete.sh
+cd ../
